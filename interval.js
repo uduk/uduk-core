@@ -163,9 +163,20 @@ var UdukInterval = {
     return cycIdx;
   },
 
-  fingerBlock: function(interval)
+  sumFlow: function(interval)
   {
-    var v = [0, 0, 0, 0];
+    var flow = [0, 0, 0];
+    for (var i = 0; i < interval.length; i++) {
+      if (interval[i] == 0) {
+        flow[1] += 1;
+      }
+      else if (interval[i] > 0) {
+        flow[2] += 1;
+      }
+      else if (interval[i] < 0) {
+        flow[0] += 1;
+      }
+    }
   },
 
   extractShape: function(interval)
