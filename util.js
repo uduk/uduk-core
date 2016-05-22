@@ -1,9 +1,9 @@
 
 /**
-  *
-	* UDUK Util 1.0
-	*
-	*/
+*
+* UDUK Util 1.0
+*
+*/
 
 var UdukUtil = {
 

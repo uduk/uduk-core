@@ -1,10 +1,10 @@
 
 /**
-  *
-	* UDUK Interval 1.0
-	* require: JQuery UdukUtil.js
-	*
-	*/
+*
+* UDUK Interval 1.0
+* require: JQuery UdukUtil.js
+*
+*/
 
 var UdukInterval = {
 

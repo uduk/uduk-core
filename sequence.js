@@ -1,9 +1,9 @@
 
 /**
-  *
-	* UDUK Sequence 1.0
-	*
-	*/
+*
+* UDUK Sequence 1.0
+*
+*/
 
 var UdukSequence = {
 
