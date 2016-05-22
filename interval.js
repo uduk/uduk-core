@@ -31,7 +31,7 @@ var UdukInterval = {
     var mid = (interval.length - 1) / 2;
     for (var i = 0; i < interval.length; i++) {
       loop += interval[i];
-      if (loop == 0 && key == mid) {
+      if (loop == 0 && i == mid) {
         var a1 = interval.slice(0, mid);
         var a2 = interval.slice(mid + 1, interval.length);
         test = JSON.stringify(a1) == JSON.stringify(a2);
@@ -157,7 +157,7 @@ var UdukInterval = {
     for (var i = 0; i < interval.length; i++) {
       cyc += interval[i];
       if (cyc == 0) {
-        cycIdx.push(key);
+        cycIdx.push(i);
       }
     }
     return cycIdx;
