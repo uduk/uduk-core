@@ -177,11 +177,27 @@ var UdukInterval = {
         flow[0] += 1;
       }
     }
+    return flow;
+  },
+
+  locateChange: function (interval)
+  {
+    var change = [];
+    var scaled = this.scale(interval);
+    var c = scaled[0];
+    for (var i = 0; i < scaled.length; i++) {
+      if (c != scaled[i]) {
+        c = scaled[i]
+        change.push(i);
+      }
+    }
+    return change;
   },
 
   extractShape: function(interval)
   {
     var unique = UdukUtil.unique(interval);
+    // TODO
   }
 
 };
