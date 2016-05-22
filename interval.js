@@ -13,7 +13,7 @@ var UdukInterval = {
   isCycle: function(interval)
   {
     var cycle = 0;
-      $.each (interval, function (key, val) {
+    $.each (interval, function (key, val) {
       cycle += val;
     });
 
