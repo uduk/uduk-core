@@ -2,7 +2,7 @@
 /**
 *
 * UDUK Interval 1.0
-* require: JQuery UdukUtil.js
+* require: UdukUtil.js
 *
 */
 
@@ -13,9 +13,10 @@ var UdukInterval = {
   isCycle: function(interval)
   {
     var cycle = 0;
-    $.each (interval, function (key, val) {
-      cycle += val;
-    });
+    for (var i = 0; i < interval.length; i++) {
+
+      cycle += interval[i];
+    }
 
     if (cycle == 0)
       return true;
@@ -28,15 +29,15 @@ var UdukInterval = {
     var loop = 0;
     var test = false;
     var mid = (interval.length - 1) / 2;
-    $.each (interval, function (key, val) {
-      loop += val;
+    for (var i = 0; i < interval.length; i++) {
+      loop += interval[i];
       if (loop == 0 && key == mid) {
         var a1 = interval.slice(0, mid);
         var a2 = interval.slice(mid + 1, interval.length);
         test = JSON.stringify(a1) == JSON.stringify(a2);
       }
 
-    });
+    }
     return test;
   },
 
@@ -67,11 +68,11 @@ var UdukInterval = {
   isChromatic: function(interval)
   {
     var ret = true;
-    $.each (interval, function (key, val) {
-      if ( (interval[key] != 1) && (interval[key] != -1) )  {
+    for (var i = 0; i < interval.length; i++) {
+      if ( (interval[i] != 1) && (interval[i] != -1) )  {
         ret = false 
       }
-    });
+    }
     return ret;
   },
 
@@ -84,12 +85,12 @@ var UdukInterval = {
     set.push([-1, -2]);
     set.push([-2, -1]);
 
-    $.each (set, function (key, val) {
-      var test = JSON.stringify(set[key]) == JSON.stringify(interval);
+    for (var i = 0; i < set.length; i++) {
+      var test = JSON.stringify(set[i]) == JSON.stringify(interval);
       if (test) {
         r = true;
       }
-    });
+    }
     return r;
   },
 
@@ -117,18 +118,18 @@ var UdukInterval = {
   measureRange: function(interval)
   {
     var range = 0;
-    $.each (interval, function (key, val) {
-      range += val;
-    });
+    for (var i = 0; i < interval.length; i++) {
+      range += interval[i];
+    }
     return range;
   },
 
   scale: function(interval)
   {
     var scale = [];	
-    $.each (interval, function (key, val) {
-      scale.push(val/Math.abs(val));
-    });
+    for (var i = 0; i < interval.length; i++) {
+      scale.push(interval[i]/Math.abs(val));
+    }
     return scale;
   },
 
@@ -138,14 +139,14 @@ var UdukInterval = {
     var flowCostN = 0.30;
     var flowCostSum = 0.00;
 
-    $.each (interval, function (key, val) {
-      if (val > 0) {
-        flowCostSum += val * flowCostP;
+    for (var i = 0; i < interval.length; i++) {
+      if (interval[i] > 0) {
+        flowCostSum += interval[i] * flowCostP;
       }
-      else if (val < 0) {
-        flowCostSum += -1 * val * flowCostN;
+      else if (interval[i] < 0) {
+        flowCostSum += -1 * interval[i] * flowCostN;
       }
-    });
+    }
     return flowCostSum;
   },
 
@@ -153,12 +154,12 @@ var UdukInterval = {
   {
     var cyc = 0;
     var cycIdx = [];
-    $.each (interval, function (key, val) {
-      cyc += val;
+    for (var i = 0; i < interval.length; i++) {
+      cyc += interval[i];
       if (cyc == 0) {
         cycIdx.push(key);
       }
-    });
+    }
     return cycIdx;
   },
 
@@ -167,8 +168,9 @@ var UdukInterval = {
     var v = [0, 0, 0, 0];
   },
 
-  shapeAlign: function(interval)
+  extractShape: function(interval)
   {
+    var unique = UdukUtil.unique(interval);
   }
 
 };
