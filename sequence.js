@@ -98,14 +98,25 @@ var UdukSequence = {
       fret[c]++;
     }
 
-    var r = fret.slice(min, max + 1);
-    for (var j = 0; j < r.length; j++) {
-      if (r[j] != 0) {
-        r[j] = r[j] / r[j];
+    var fpos = fret.slice(min, max + 1);
+    for (var j = 0; j < fpos.length; j++) {
+      if (fpos[j] != 0) {
+        fpos[j] = fpos[j] / fpos[j];
       }
     }
 
-    return r;
+    return fpos;
+  },
+
+  fGap: function(fpos)
+  {
+    var count = 0;
+    for (var i = 0; i < fpos.length; i++) {
+      if (fpos[i] == 0) {
+        count += 1;
+      }
+    }
+    return count;
   }
 
 };
