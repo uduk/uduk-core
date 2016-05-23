@@ -2,7 +2,7 @@
 /**
 *
 * UDUK Interval 1.0
-* require: UdukUtil.js
+* require: util.js
 *
 */
 
@@ -204,16 +204,6 @@ var UdukInterval = {
       }
     }
     return change;
-  },
-
-  fPosition: function(interval)
-  {
-    var fPos = { 
-      "2" : "[1, 0, 0, 1], [1, 0, 1, 0], [0, 1, 0, 1], [1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 1, 1]", 
-      "3" : "[1, 1, 1, 0], [0, 1, 1, 1], [1, 1, 0, 1], [1, 0, 1, 1]",
-      "4" : "[1, 1, 1, 1]"
-    };
-    var index = 0;
   }
 
 };

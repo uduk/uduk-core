@@ -2,6 +2,7 @@
 /**
 *
 * UDUK Sequence 1.0
+* require: util.js
 *
 */
 
@@ -71,6 +72,40 @@ var UdukSequence = {
     } while (i > 0);
 
     return spin;
+  },
+
+  fPosition: function(sequence)
+  {
+    var itv = this.toInterval(sequence);
+
+    var fret = [];
+    for (var z = 0; z <= 24; z++) {
+      fret.push(0);
+    }
+
+    var pointer = this.splitNote(sequence[0]);
+    var c = parseInt(pointer[1]);
+    var min = 0;
+    var max = 0;
+
+    fret[c]++;
+    min = max = c;
+
+    for (var i = 0; i < itv.length; i++) {
+      c += itv[i]; 
+      (c < min) ? min = c : min = min;
+      (c > max) ? max = c : max = max;
+      fret[c]++;
+    }
+
+    var r = fret.slice(min, max + 1);
+    for (var j = 0; j < r.length; j++) {
+      if (r[j] != 0) {
+        r[j] = r[j] / r[j];
+      }
+    }
+
+    return r;
   }
 
 };
