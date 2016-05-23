@@ -14,7 +14,6 @@ var UdukInterval = {
   {
     var cycle = 0;
     for (var i = 0; i < interval.length; i++) {
-
       cycle += interval[i];
     }
 
@@ -92,6 +91,17 @@ var UdukInterval = {
       }
     }
     return r;
+  },
+
+  isOneWay: function(interval)
+  {
+    var c = this.locateChange(interval);
+    if (c.length == 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
   },
 
   measureDirection: function(interval1, interval2)
@@ -180,7 +190,7 @@ var UdukInterval = {
     return flow;
   },
 
-  locateChange: function (interval)
+  locateChange: function(interval)
   {
     var change = [];
     var scaled = this.scale(interval);
@@ -192,6 +202,16 @@ var UdukInterval = {
       }
     }
     return change;
+  },
+
+  fPosition: function(interval)
+  {
+    var fPos = { 
+      "2" : "[1, 0, 0, 1], [1, 0, 1, 0], [0, 1, 0, 1], [1, 1, 0, 0], [0, 1, 1, 0], [0, 0, 1, 1]", 
+      "3" : "[1, 1, 1, 0], [0, 1, 1, 1], [1, 1, 0, 1], [1, 0, 1, 1]",
+      "4" : "[1, 1, 1, 1]"
+    };
+    var index = 0;
   }
 
 };
