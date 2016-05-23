@@ -128,7 +128,7 @@ var UdukInterval = {
   {
     var scale = [];	
     for (var i = 0; i < interval.length; i++) {
-      scale.push(interval[i]/Math.abs(val));
+      scale.push(interval[i]/Math.abs(interval[i]));
     }
     return scale;
   },
@@ -192,12 +192,6 @@ var UdukInterval = {
       }
     }
     return change;
-  },
-
-  extractShape: function(interval)
-  {
-    var unique = UdukUtil.unique(interval);
-    // TODO
   }
 
 };

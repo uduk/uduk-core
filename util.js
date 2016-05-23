@@ -51,6 +51,25 @@ var UdukUtil = {
       }
     }
     return partition;
+  },
+
+  freqCount: function(arr)
+  {
+    var uniq = this.unique(arr);
+
+    var freq = [];
+    for (var z = 0; z < uniq.length; z++) {
+      freq.push(0);
+    }
+    
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = 0; j < uniq.length; j++) {
+        if (arr[i] == uniq[j]) {
+          freq[j] += 1;
+        }
+      }
+    }
+    return freq;
   }
  
 };
