@@ -17,10 +17,12 @@ var UdukInterval = {
       cycle += interval[i];
     }
 
-    if (cycle == 0)
+    if (cycle == 0) {
       return true;
-    else
+    }
+    else {
       return false;
+    }
   },
 
   isLoop: function(interval)
