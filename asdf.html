@@ -1,0 +1,59 @@
+<html>
+<body>
+<script type="text/javascript" src="sequence.js"></script>
+<script>
+
+var seq = [512, 405];
+
+function toInterval(sequence)
+{
+  var n = 1;
+  var p = 0;
+  var interval = [];
+  for (var i = 0; i < sequence.length - 1; i++, n++, p++) {
+    var splitP = UdukSequence.splitNote(sequence[p]);
+    var splitN = UdukSequence.splitNote(sequence[n]);
+    var senarP = splitP[0];
+    var fretP = splitP[1];
+    var senarN = splitN[0];
+    var fretN = splitN[1];
+    
+    var dist = (senarN - senarP);
+    console.log(dist);
+
+    if (dist == 0) {
+      var itv = fretN - fretP;
+      interval.push(itv);		
+    }
+    else if (dist > 0) {
+      if (senarP == 2 && senarN == 3) {
+        var itv = (4 * dist) - (fretN - fretP);
+        interval.push(itv);  
+      }
+      else {
+        var itv = (5 * dist) - (fretN - fretP);
+        interval.push(itv);  
+      }
+    }
+    else if (dist < 0) {
+      if (senarP == 3 && senarN == 2) {
+        var itv = (-4 * dist) + (fretN - fretP);
+        interval.push(itv);  
+      }
+      else {  
+        var itv = (-5 * dist) + (fretN - fretP);
+        interval.push(itv);  
+      }
+    }
+
+  }
+  return interval;
+}
+
+
+var i = toInterval(seq);
+console.log( i  );
+
+</script>
+</body>
+</html>
