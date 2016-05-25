@@ -66,6 +66,25 @@ var UdukInterval = {
     return JSON.stringify(a1) == JSON.stringify(a2);
   },
 
+  isSimilarFlow: function(interval1, interval2)
+  {
+    var len = interval1.length;
+    var ret = true;
+    if (interval1.length == interval2.length) {
+      var s1 = this.scale(interval1);
+      var s2 = this.scale(interval2);
+      for (var i = 0; i < len; i++) {
+        if (s1[i] != s2[i]) {
+          ret = false;
+        }
+      }
+    }
+    else {
+      ret = false;
+    }
+    return ret;
+  },
+
   isChromatic: function(interval)
   {
     var ret = true;
@@ -140,9 +159,45 @@ var UdukInterval = {
   {
     var scale = [];	
     for (var i = 0; i < interval.length; i++) {
-      scale.push(interval[i]/Math.abs(interval[i]));
+      if (interval[i] == 0) {
+        scale.push(interval[i]);
+      }
+      else if(interval[i] != 0) {
+        scale.push(interval[i]/Math.abs(interval[i]));
+      }
     }
     return scale;
+  },
+
+  toNote: function (start, interval)
+  {
+    var s = start;
+    var ret = [];
+    ret.push(s);
+    for (var i = 0; i < interval.length; i++) {
+      s += interval[i];
+      ret.push(s);
+    }
+    return ret;
+  },
+
+  reverse: function (interval)
+  {
+    return (interval.reverse());
+  },
+
+  mirror: function (interval)
+  {
+    var ret = [];
+    for (var i = 0; i < interval.length; i++) {
+      if (interval[i] == 0) {
+        ret.push(interval[i]);
+      }
+      else if (interval[i] != 0) {
+        ret.push(interval[i] * -1);
+      }
+    }
+    return ret;
   },
 
   cost: function(interval)
@@ -204,6 +259,21 @@ var UdukInterval = {
       }
     }
     return change;
+  },
+
+  changeSet: function(change)
+  {
+    var s = 0;
+    var e = 0;
+    var set = [];
+    for (var i = 0; i < c.length; i++) {
+      s = e;
+      e = c[i] + 1;
+      set.push(seq.slice(s, e));
+    }
+    s = e;
+    set.push(seq.slice(s, seq.length));
+    return set;
   }
 
 };
