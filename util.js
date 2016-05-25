@@ -27,6 +27,19 @@ var UdukUtil = {
     return JSON.stringify(arr1) == JSON.stringify(arr2);
   },
 
+  isExist: function(key, set)
+  {
+    var len = set.length;
+    var ret = false;
+    for (var i = 0; i < len; i++) {
+      c = this.compare(key, set[i]);
+      if (c) {
+        ret = true;
+      }
+    }
+    return ret;
+  },
+
   diff: function(arr1, arr2)
   {
     var diff = [];
@@ -41,16 +54,38 @@ var UdukUtil = {
 
   partition: function(arr, n)
   {
-    var partition = [];
+    var set = [];
     var idx = 1;
 
     if (arr.length > n) {
       for (var i = 0; i < arr.length; i+=n, idx++) {
        var a = arr.slice(i, n * idx);
-       partition.push(a);
+       set.push(a);
       }
     }
-    return partition;
+    return set;
+  },
+
+  chunk: function(arr)
+  {
+    var len = arr.length;
+    var z = 3
+    var set = [];
+
+    if (len < 6) {
+      return false;
+    }
+
+    do {
+      var h = [];
+      for (var i = 0; i <= len - z; i++) {
+          h.push(arr.slice(i, z + i));
+      }
+      set.push(h);
+      z++;
+    } while (z <= (len - 1));
+
+    return set;
   },
 
   freqCount: function(arr)
@@ -70,6 +105,21 @@ var UdukUtil = {
       }
     }
     return freq;
+  },
+
+  mapIdx: function(arrIdx, arrOrg)
+  {
+    var s = 0;
+    var e = 0;
+    var set = [];
+    for (var i = 0; i < arrIdx.length; i++) {
+      s = e;
+      e = arrIdx[i] + 1;
+      set.push(arrOrg.slice(s, e));
+    }
+    s = e;
+    set.push(arrOrg.slice(s, arrOrg.length));
+    return set;
   }
  
 };

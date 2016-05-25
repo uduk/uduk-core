@@ -38,6 +38,29 @@ var UdukSequence = {
     return [root, subroot];
   },
 
+  splitByString: function(sequence)
+  {
+    var stringSequence = []; 
+    var skipIdx = [];
+
+    for (var i = 0; i < sequence.length; i++) {
+      var noteArray = this.splitNote(sequence[i]);
+      var senar = parseInt(noteArray[0]);
+      var note = parseInt(noteArray[1]);
+      stringSequence.push(senar);
+    }
+
+    var n = 1;
+    var p = 0;
+    for (var i = 0; i < stringSequence.length - 1; i++, n++, p++) {
+      var y = stringSequence[n] - stringSequence[p];
+      if(y != 0) {
+        skipIdx.push(i);
+      }
+    }
+    return skipIdx;
+  },
+
   fundamentalFlow: function(note)
   {
     // must be decomposed minimally

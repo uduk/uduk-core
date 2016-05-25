@@ -259,21 +259,6 @@ var UdukInterval = {
       }
     }
     return change;
-  },
-
-  changeSet: function(change)
-  {
-    var s = 0;
-    var e = 0;
-    var set = [];
-    for (var i = 0; i < c.length; i++) {
-      s = e;
-      e = c[i] + 1;
-      set.push(seq.slice(s, e));
-    }
-    s = e;
-    set.push(seq.slice(s, seq.length));
-    return set;
   }
 
 };
