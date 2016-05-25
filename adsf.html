@@ -1,0 +1,44 @@
+<html>
+<body>
+<script type="text/javascript"></script>
+<script>
+
+// UdukInterval
+function toNote(start, interval)
+{
+  var s = start;
+  var ret = [];
+  ret.push(s);
+  for (var i = 0; i < interval.length; i++) {
+    s += interval[i];
+    ret.push(s);
+  }
+  return ret;
+}
+
+function reverse(interval)
+{
+  return (interval.reverse());
+}
+
+function mirror(interval)
+{
+  var ret = [];
+  for (var i = 0; i < interval.length; i++) {
+    if (interval[i] == 0) {
+      ret.push(interval[i]);
+    }
+    else if (interval[i] != 0) {
+      ret.push(interval[i] * -1);
+    }
+  }
+  return ret;
+}
+
+var interval = [0, 2, 1, 0];
+console.log(mirror(interval));
+
+
+</script>
+</body>
+</html>
