@@ -24,7 +24,6 @@ var UdukSequence = {
       var fretN = splitN[1];
       
       var dist = (senarN - senarP);
-      console.log(dist);
       if (dist == 0) {
         var itv = fretN - fretP;
         interval.push(itv);		
@@ -130,10 +129,11 @@ var UdukSequence = {
 
   fPosition: function(sequence)
   {
+    var fretSize = 24;
     var itv = this.toInterval(sequence);
 
     var fret = [];
-    for (var z = 0; z <= 24; z++) {
+    for (var z = 0; z <= fretSize; z++) {
       fret.push(0);
     }
 
