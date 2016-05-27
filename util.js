@@ -11,15 +11,21 @@ var UdukUtil = {
 
   unique: function(arr)
   {
-    var f = {},
-    i = 0,
-    l = arr.length,
-    r = [];
-    while (i < l) {
-      !f[arr[i]] && r.push(arr[i]);
-      f[arr[i++]] = 1;
+    var ret = [];
+    for (var i = 0; i < arr.length; i++) {
+      var val = arr[i];
+      var c = 0;
+      ret.push(val);
+      for (var j = 0; j < ret.length; j++) {
+        if (val == ret[j]) {
+          c++;
+        }
+        if (c > 1) {
+          ret.pop(val)
+        }
+      }
     }
-    return r;
+    return ret;
   },
 
   compare: function(arr1, arr2)
