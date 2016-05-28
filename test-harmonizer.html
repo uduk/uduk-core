@@ -1,0 +1,37 @@
+<html>
+<body>
+<script type="text/javascript" src="harmonizer.js"></script>
+<script>
+
+  var i = UdukHarmonizer.chaoticInterval(-4, 4, 9);
+  console.log("chaoticInterval: " + i);
+
+  function myCallbackFunction(i) {
+    return i = (2 * i) + 1 - i ; 
+  }
+  i = UdukHarmonizer.functionalInterval(9, myCallbackFunction, 4);
+  console.log("functionalInterval: " + i);
+
+  var map = [60, 62, 64, 67];
+  var markovMatrix = [];
+  var a = [0.0,1.0,0.0,0.0];
+  var b = [0.3,0.3,0.4,0.0];
+  var c = [0.0,0.45454545,0.45454545,0.09090909];
+  var d = [0.0,0.0,0.5,0.5];
+  markovMatrix.push(a); markovMatrix.push(b); 
+  markovMatrix.push(c); markovMatrix.push(d);
+  var seed = 2;
+  i = UdukHarmonizer.basicMarkov(seed, map, markovMatrix, 9);
+  console.log("basicMarkov: " + i);
+
+  var numbers      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var weightings   = [0.0,0.075,0.1,0.15,0.3,0.15,0.1,0.075,0.05];
+  var matrix = [];
+  matrix.push(numbers);
+  matrix.push(weightings);
+  i = UdukHarmonizer.stochasticMatrix(matrix, 9);
+  console.log("stochasticMatrix: " + i);
+
+</script>
+</body>
+</html>
