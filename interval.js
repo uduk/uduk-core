@@ -96,7 +96,7 @@ var UdukInterval = {
     return ret;
   },
 
-  isTriplet: function(interval)
+  isOneTwo: function(interval)
   {
     var r = false;
     var set = [];
