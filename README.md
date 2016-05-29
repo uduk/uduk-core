@@ -25,7 +25,7 @@ short int {start, end}
 
 <b>uduk-notation></b> a[a, l]!t!s[a] 
 
-<b>uduk-beat-alignment><b>
+<b>uduk-beat-alignment></b>
 
 <pre>
 o.......o.......  2n
