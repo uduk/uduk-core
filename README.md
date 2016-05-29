@@ -14,3 +14,25 @@ o   o o-o   o   o o  o
 <script src="alignment.js"></script>
 <script src="harmonizer.js"></script>
 ```
+
+### z type
+s = sweep
+a = alternate
+l = legato
+t = tap
+
+short int {start, end}
+
+<b>uduk-notation></b> a[a, l]!t!s[a] 
+
+<b>uduk-beat-alignment><b>
+
+<pre>
+o.......o.......  2n
+....o.......o...  2
+o...o...o...o...  4
+.o.o.o.o.o.o.o.o  8
+o.o.o.o.o.o.o.o.  8
+oooooooooooooooo 16
+</pre>
+playrate 16 x2   32
