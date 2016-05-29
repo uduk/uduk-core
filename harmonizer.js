@@ -67,7 +67,7 @@ var UdukHarmonizer = {
           break;
         }
       }
-      ret.push(numbers[result]);
+      ret.push(matrix[0][result]);
     }
     return ret;
   }
