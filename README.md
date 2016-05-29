@@ -23,7 +23,7 @@ t = tap<br>
 
 short int {start, end}
 
-<b>uduk-notation></b> a[a, l]!t!s[a] <br>
+<b>uduk-notation></b> set rule = a[a, l]!t!s[a] && set method = {0: hmm 1: randomwalk n:...} <br>
 output: real-time / vexflow / midi / fl ?
 
 <b>uduk-beat-alignment></b> set (4/4)
