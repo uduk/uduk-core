@@ -26,7 +26,7 @@ short int {start, end}
 <b>uduk-notation></b> a[a, l]!t!s[a] <br>
 output: real-time / vexflow / midi / fl ?
 
-<b>uduk-beat-alignment> set (4/4) </b>
+<b>uduk-beat-alignment></b> set (4/4)
 
 <pre>
 o.......o.......  2n
