@@ -247,7 +247,7 @@ var UdukInterval = {
     return flow;
   },
 
-  locateChange: function(interval)
+  directionChangeAt: function(interval)
   {
     var change = [];
     var scaled = this.scale(interval);
@@ -259,6 +259,17 @@ var UdukInterval = {
       }
     }
     return change;
+  },
+
+  directionFlow: function(interval)
+  {
+    var c = this.findCycle(interval);
+    if (c.length > 0) {
+      return UdukUtil.mapIdx(c, interval);
+    }
+    else {
+      return false;
+    }
   }
 
 };
