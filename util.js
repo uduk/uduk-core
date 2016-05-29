@@ -95,6 +95,7 @@ var UdukUtil = {
   {
     var uniq = this.unique(arr);
     var freq = [];
+    var ret = [];
     for (var z = 0; z < uniq.length; z++) {
       freq.push(0);
     }
@@ -105,7 +106,8 @@ var UdukUtil = {
         }
       }
     }
-    return freq;
+    ret.push(uniq); ret.push(freq);
+    return ret;
   },
 
   mapIdx: function(arrIdx, arrOrg)
