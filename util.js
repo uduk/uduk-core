@@ -62,7 +62,6 @@ var UdukUtil = {
   {
     var set = [];
     var idx = 1;
-
     if (arr.length > n) {
       for (var i = 0; i < arr.length; i+=n, idx++) {
        var a = arr.slice(i, n * idx);
@@ -77,11 +76,9 @@ var UdukUtil = {
     var len = arr.length;
     var z = 3
     var set = [];
-
     if (len < 6) {
       return false;
     }
-
     do {
       var h = [];
       for (var i = 0; i <= len - z; i++) {
@@ -97,12 +94,10 @@ var UdukUtil = {
   freqCount: function(arr)
   {
     var uniq = this.unique(arr);
-
     var freq = [];
     for (var z = 0; z < uniq.length; z++) {
       freq.push(0);
     }
-    
     for (var i = 0; i < arr.length; i++) {
       for (var j = 0; j < uniq.length; j++) {
         if (arr[i] == uniq[j]) {
