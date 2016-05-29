@@ -16,14 +16,14 @@ o   o o-o   o   o o  o
 ```
 
 ### z type
-s = sweep
-a = alternate
-l = legato
-t = tap
+s = sweep<br>
+a = alternate<br>
+l = legato<br>
+t = tap<br>
 
 short int {start, end}
 
-<b>uduk-notation></b> a[a, l]!t!s[a] 
+<b>uduk-notation></b> a[a, l]!t!s[a] <br>
 output: real-time / vexflow / midi / fl ?
 
 <b>uduk-beat-alignment></b>
