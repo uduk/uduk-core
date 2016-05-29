@@ -1,4 +1,11 @@
-# uduk-core
+
+<pre>
+o   o o-o   o   o o  o 
+|   | |  \  |   | | /  
+|   | |   O |   | OO   
+|   | |  /  |   | | \  
+ o-o  o-o    o-o  o  o 
+</pre>
 
 ```html
 <script src="util.js"></script>
