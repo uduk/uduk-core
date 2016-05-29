@@ -24,6 +24,7 @@ t = tap
 short int {start, end}
 
 <b>uduk-notation></b> a[a, l]!t!s[a] 
+output: real-time / vexflow / midi / fl ?
 
 <b>uduk-beat-alignment></b>
 
