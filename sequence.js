@@ -86,6 +86,54 @@ var UdukSequence = {
     return midiNoteTable[s][f];
   },
 
+  toFretNote: function(str, notes)
+  {
+    var six   = [ "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"];
+    var five  = [ "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A"];
+    var four  = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D"];
+    var three = [ "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G"];
+    var two   = [ "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+    var one   = [ "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"];
+
+    var fretNoteTable = [];
+        fretNoteTable.push(["0"]);
+        fretNoteTable.push(one); 
+        fretNoteTable.push(two);
+        fretNoteTable.push(three);
+        fretNoteTable.push(four);
+        fretNoteTable.push(five);
+        fretNoteTable.push(six);
+
+    var ret = [];
+    for (var i = 0; i < notes.length; i++) {
+      var note = notes[i].toUpperCase();
+      if (note == "GB") {
+        note = "F#";
+      }
+      else if (note == "AB") {
+        note = "G#";
+      }
+      else if (note == "BB") {
+        note = "A#";
+      }
+      else if (note == "DB") {
+        note = "C#";
+      }
+      for (var j = 0; j < fretNoteTable[str].length; j++) {
+        if (note == fretNoteTable[str][j]) {
+          if ( j >= 0 && j < 10 ) {
+            ret.push(str + "0" + j);
+          }
+          else if ( j >= 10 && j <= 24 ) {
+            ret.push(str + "" + j);
+          }
+        }
+
+      }
+    }
+    return ret;
+  },
+
   splitNote: function(note)
   {
     var x = note.toString();
