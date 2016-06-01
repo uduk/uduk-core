@@ -1,0 +1,75 @@
+<html>
+<body>
+<script type="text/javascript">
+
+  var relativeKeys = [
+  {
+    major: "C",
+    minor: "AM",
+    note: ["C", "D", "E", "F", "G", "A", "B"]
+  },
+  {
+    major: "G",
+    minor: "EM",
+    note: ["G", "A", "B", "C", "D", "E", "F#"]
+  },
+  {
+    major: "D",
+    minor: "BM",
+    note: ["D", "E", "F#", "G", "A", "B", "C#"]
+  },
+  {
+    major: "A",
+    minor: "F#M",
+    note: ["A", "B", "C#", "D", "E", "F#", "G#"]
+  },
+  {
+    major: "E",
+    minor: "C#M",
+    note: ["E", "F#", "G#", "A", "B", "C#", "D#"]
+  },
+  {
+    major: "F",
+    minor: "DM",
+    note: ["F", "G", "A", "A#", "C", "D", "E"]
+  },
+  {
+    major: "B",
+    minor: "G#M",
+    note: ["B", "C#", "D#", "E", "F#", "G#", "A#"]
+  },
+  {
+    major: "F#", alias: "GB",
+    minor: "D#M",
+    note: ["F#", "G#", "A#", "B", "C#", "D#", "F"]
+  },
+  {
+    major: "C#", alias: "DB",
+    minor: "A#M",
+    note: ["C#", "D#", "F", "F#", "G#", "A#", "C"]
+  },
+  {
+    major: "G#", alias: "AB",
+    minor: "FM",
+    note: ["G#", "A#", "C", "C#", "D#", "F", "G"]
+  },
+  {
+    major: "D#", alias: "EB",
+    minor: "CM",
+    note: ["D#", "F", "G", "G#", "A#", "C", "D"]
+  },
+  {
+    major: "A#", alias: "BB",
+    minor: "GM",
+    note: ["A#", "C", "D", "D#", "F", "G", "A"]
+  }
+  ];
+
+  for (var {major: m, minor: n, note: no, alias: a} of relativeKeys) {
+    console.log("major: " + m + " minor: " + n + " note " + no + " alias " + a);
+  }
+
+  console.log(relativeKeys
+</script>
+</body>
+</html>
