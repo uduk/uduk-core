@@ -78,6 +78,37 @@
   const arr = [...x, ...y, ...z]; 
   console.log(arr);
 
+  var arr1 = ['a', 'b'];
+  for ([index, element] of arr1.entries()) {
+    console.log(index, element);
+  }
+
+  var arr2 = [ {name: 'Jane', age: 41}, {name: 'John', age: 40}, ];
+  for ({name, age} of arr2) {
+    console.log(name, age);
+  }
+
+  const arrayLike = {
+      '0': 'a',
+      '1': 'b',
+      '2': 'c',
+      length: 3
+  };
+
+  // ECMAScript 6:
+  const arr4 = Array.from(arrayLike); // ['a', 'b', 'c']
+  console.log(arr4);
+
+
+  const arrX = ['a', 'b', 'c'];
+  for (const elem of arrX) {
+    console.log(elem);
+  }
+
+  for (const [index, elem] of arrX.entries()) {
+    console.log(index+'. '+elem);
+  }
+    
 </script>
 </body>
 </html>
