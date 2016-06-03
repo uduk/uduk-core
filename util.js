@@ -90,6 +90,15 @@ var UdukUtil = {
 
     return set;
   },
+  
+  ngram: function(arr, z)
+  {
+    var n = [];
+    for (var i = 0; i <= arr.length - z; i++) {
+      n.push(arr.slice(i, z + i));
+    }
+    return n;
+  },
 
   freqCount: function(arr)
   {
