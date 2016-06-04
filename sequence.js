@@ -122,6 +122,17 @@ var UdukSequence = {
     return ret;
   },
 
+  filterDuplicate: function(sequence) 
+  {
+    var ret = [];
+    for (var i = 0; i < sequence.length; i++) {
+      if(sequence[i] != sequence[i+1]) {
+        ret.push(sequence[i]);
+      }
+    }
+    return ret;
+  },
+
   splitNote: function(note)
   {
     var x = note.toString();
