@@ -74,7 +74,7 @@ var UdukSequence = {
     return midiNoteTable[s][f];
   },
 
-  toFretNote: function(str, notes)
+  toFretNote: function(str, scale)
   {
     var six   = [ "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"];
     var five  = [ "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A"];
@@ -93,8 +93,8 @@ var UdukSequence = {
         fretNoteTable.push(six);
 
     var ret = [];
-    for (var i = 0; i < notes.length; i++) {
-      var note = notes[i].toUpperCase();
+    for (var i = 0; i < scale.length; i++) {
+      var note = scale[i].toUpperCase();
       if (note == "GB") {
         note = "F#";
       }
@@ -117,6 +117,28 @@ var UdukSequence = {
           }
         }
 
+      }
+    }
+    return ret;
+  },
+
+  filterScale: function(sequence, scale) 
+  {
+    var ret = [];
+    for (var i = 0; i < scale.length; i++) {
+      scale[i] = scale[i].toUpperCase();
+    }
+    var buildScale = [];
+    for (var i = 1; i <= 6; i++) {
+      buildScale.push(this.toFretNote(i, scale));
+    }
+    for (var iii = 0; iii < sequence.length; iii++) {
+      for (var x = 0; x < buildScale.length; x++) {
+        for (var y = 0; y < buildScale[x].length; y++) {
+          if (parseInt(sequence[iii]) == parseInt(buildScale[x][y])) {
+            ret.push(sequence[iii]);
+          }
+        }
       }
     }
     return ret;
