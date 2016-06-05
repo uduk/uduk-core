@@ -55,8 +55,8 @@ var UdukSequence = {
   {
     var buildSequence = [];
     for (var i = 0; i < sequence.length; i++) {
-      var s = UdukSequence.splitNote(sequence[i]);
-      buildSequence.push(UdukSequence.toMIDINote(s[0], s[1]));
+      var s = this.splitNote(sequence[i]);
+      buildSequence.push(this.toMIDINote(s[0], s[1]));
     }
     return buildSequence; 
   },
