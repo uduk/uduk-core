@@ -2,7 +2,6 @@
 /**
 *
 * UDUK Sequence 1.0
-* require: util.js
 *
 */
 
