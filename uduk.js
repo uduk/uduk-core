@@ -443,5 +443,18 @@ $(document).ready(function() {
     }
   });
 
+  var ZhredBoard_Blind = false;
+  $("#blind").click(function() {
+    ZhredBoard_Blind = !ZhredBoard_Blind;
+    if (ZhredBoard_Blind) {
+      blindMode6(true); 
+      $("#blindref").text("Show Me");
+    }
+    else {
+      blindMode6(false); 
+      $("#blindref").text("Blind Mode");
+    }
+  });
+
   console.log("%c ZhredCanvas v1.0", "background: #000; color: #fff");
 });
