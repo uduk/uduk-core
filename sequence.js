@@ -105,6 +105,7 @@ var UdukSequence = {
     var ret = [];
     for (var i = 0; i < scale.length; i++) {
       var note = scale[i].toUpperCase();
+      
       if (note == "GB") {
         note = "F#";
       }
@@ -117,6 +118,10 @@ var UdukSequence = {
       else if (note == "DB") {
         note = "C#";
       }
+      else if (note == "EB") {
+        note = "D#"
+      }
+      
       for (var j = 0; j < fretNoteTable[str].length; j++) {
         if (note == fretNoteTable[str][j]) {
           if ( j >= 0 && j < 10 ) {
