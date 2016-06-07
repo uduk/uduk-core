@@ -119,7 +119,7 @@ var UdukSequence = {
         note = "C#";
       }
       else if (note == "EB") {
-        note = "D#"
+        note = "D#";
       }
       
       for (var j = 0; j < fretNoteTable[str].length; j++) {
